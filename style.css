@@ -99,11 +99,88 @@ body {
 
 .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
 .header>* {
     padding: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    /* Removes the white box */
+    border: none;
+    /* Removes default border */
+    outline: none;
+    /* Prevents focus outline */
+    color: white;
+    /* Text color */
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.search-bar {
+    position: relative;
+    left: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 400px;
+    background-color: #1f1f1f;
+    border: 2px solid #121212;
+    border-radius: 50px;
+    padding: 5px 15px;
+    /* Adds spacing inside */
+}
+
+.search-bar:hover {
+    background-color: #2a2a2a;
+    transition: all 0.2s ease-in-out;
+    opacity: 0.1s
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-1 {
+    width: 100px;
+    height: 42px;
+    color: grey;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 50px;
+    background-color: black;
+}
+
+.btn-1:hover {
+    background-color: #1bd760;
+    transition: all 0.2s ease-out;
+    color: black;
+    transform: scale(1.1);
+
+}
+
+.btn-2 {
+    width: 100px;
+    height: 42px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 50px;
+}
+
+.btn-2:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-out;
 }
 
 .spotifyPlaylist {
@@ -118,9 +195,9 @@ body {
 
 .cardContainer {
     display: flex;
-    gap : 44px;
+    gap: 44px;
     flex-wrap: wrap;
-    overflow-y :scroll;
+    overflow-y: scroll;
     max-height: 72vh;
 }
 
@@ -132,21 +209,24 @@ body {
     background-color: #252525;
 }
 
-.card > *{
+.card>* {
     padding-top: 7px;
 }
+
 .card img {
     width: 100%;
     object-fit: contain;
 }
-.play{
+
+.play {
     position: absolute;
     top: 190px;
     right: 14px;
     opacity: 0;
 }
+
 .card:hover .play {
     opacity: 1;
     transition: all 0.5s ease-in-out;
-    top : 176px;
+    top: 176px;
 }

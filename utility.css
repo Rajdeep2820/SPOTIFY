@@ -1,5 +1,5 @@
 .border{
-    border : solid 2px red;
+    border : solid 2px #252525;
     margin : 1px;
 }
 .flex{
@@ -19,4 +19,27 @@
 }
 .p-1{
     padding : 13px;
+}
+.container {
+    overflow-y: scroll;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #222 #111; /* Firefox */
+}
+
+/* Webkit-based browsers */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #111; /* Dark background */
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #222; /* Darker scrollbar */
+    border-radius: 6px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #333; /* Slightly lighter on hover */
 }

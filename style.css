@@ -6,7 +6,9 @@
 
 body {
     background-color: black;
+    color: white;
 }
+
 
 .left {
     width: 25vw;
@@ -20,6 +22,7 @@ body {
 
 .right {
     width: 75vw;
+    max-height: 100vh;
 }
 
 .bg-black {
@@ -79,10 +82,10 @@ body {
 .footer {
     display: flex;
     font-size: 10px;
-    justify-content: space-between;
-    gap: 19px;
+    /* justify-content: space-between; */
+    gap: 18px;
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
 }
 
 .footer a {
@@ -101,4 +104,49 @@ body {
 
 .header>* {
     padding: 20px;
+}
+
+.spotifyPlaylist {
+    padding-left: 20px;
+}
+
+.spotifyPlaylist h2 {
+    font-size: 22px;
+    padding-top: 4px;
+    padding-bottom: 20px;
+}
+
+.cardContainer {
+    display: flex;
+    gap : 44px;
+    flex-wrap: wrap;
+    overflow-y :scroll;
+    max-height: 72vh;
+}
+
+.card {
+    position: relative;
+    width: 229px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+}
+
+.card > *{
+    padding-top: 7px;
+}
+.card img {
+    width: 100%;
+    object-fit: contain;
+}
+.play{
+    position: absolute;
+    top: 190px;
+    right: 14px;
+    opacity: 0;
+}
+.card:hover .play {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+    top : 176px;
 }

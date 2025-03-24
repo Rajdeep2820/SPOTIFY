@@ -1,0 +1,104 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, "MS Gothic";
+}
+
+body {
+    background-color: black;
+}
+
+.left {
+    width: 25vw;
+    padding: 3px;
+}
+
+.library {
+    min-height: 81.91vh;
+    position: relative;
+}
+
+.right {
+    width: 75vw;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.bg-grey {
+    background-color: #121212;
+}
+
+.logo img {
+    width: 24px;
+}
+
+.logo {
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+    gap: 2px;
+}
+
+.home ul li {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
+    align-items: center;
+    list-style: none;
+    padding-top: 21px;
+    font-weight: bold;
+}
+
+.home ul li img {
+    width: 25px;
+}
+
+.heading {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.heading img {
+    width: 25px;
+    opacity: 0.7;
+}
+
+.heading h3 {
+    font-size: 18px;
+    color: grey;
+}
+
+.footer {
+    display: flex;
+    font-size: 10px;
+    justify-content: space-between;
+    gap: 19px;
+    position: absolute;
+    bottom: 15px;
+}
+
+.footer a {
+    color: grey;
+    text-decoration: none;
+}
+
+.right {
+    margin: 16px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header>* {
+    padding: 20px;
+}

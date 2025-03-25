@@ -23,6 +23,7 @@ body {
 .right {
     width: 75vw;
     max-height: 100vh;
+    position: relative;
 }
 
 .bg-black {
@@ -79,10 +80,43 @@ body {
     color: grey;
 }
 
+.songList {
+    max-height: 69vh;
+    overflow-y: scroll;
+}
+
+.songList ul {
+    padding: 0 15px;
+}
+
+.songList ul li {
+    list-style-type: decimal;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin: 12px 0;
+    cursor: pointer;
+    border: 1px solid grey;
+}
+
+.info :nth-child(1){
+    font-size: 18px;
+}
+
+.info :nth-child(2){
+    opacity: 0.3;
+}
+
+.playNow {
+    display: flex;
+    gap : 6px;
+    align-items: center;
+}
+
+
 .footer {
     display: flex;
     font-size: 10px;
-    /* justify-content: space-between; */
     gap: 18px;
     position: absolute;
     bottom: 20px;
@@ -124,7 +158,7 @@ body {
 
 .search-bar {
     position: relative;
-    left: 70px;
+    left: 67px;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -183,17 +217,15 @@ body {
     transition: all 0.2s ease-out;
 }
 
-.spotifyPlaylist {
-    padding-left: 20px;
-}
-
 .spotifyPlaylist h2 {
+    padding-left: 20px;
     font-size: 22px;
     padding-top: 4px;
     padding-bottom: 20px;
 }
 
 .cardContainer {
+    padding-left: 20px;
     display: flex;
     gap: 44px;
     flex-wrap: wrap;
@@ -229,4 +261,19 @@ body {
     opacity: 1;
     transition: all 0.5s ease-in-out;
     top: 176px;
+}
+
+.spotifyPlaylist .playbar {
+    position: absolute;
+    bottom: 0px;
+    background-color: black;
+    min-height: 40px;
+    width: 97.98%;
+    padding: 12px;
+}
+
+.songbuttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

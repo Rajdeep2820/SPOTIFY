@@ -23,12 +23,12 @@
 .container {
     overflow-y: scroll;
     scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #222 #111; /* Firefox */
+    scrollbar-color: #1e1e1e #111; /* Firefox */
 }
 
 /* Webkit-based browsers */
 .container::-webkit-scrollbar {
-    width: 8px;
+    width: 2px;
 }
 
 .container::-webkit-scrollbar-track {
@@ -42,4 +42,32 @@
 
 .container::-webkit-scrollbar-thumb:hover {
     background: #333; /* Slightly lighter on hover */
+}
+
+.song-name {
+    width: 150px; /* Set a fixed width for scrolling effect */
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.scroll-text {
+    display: inline-block;
+    white-space: nowrap;
+    transform: translateX(0%);
+}
+
+li:hover .scroll-text {
+    animation: scrollText 4s linear infinite;
+    color : #1bd760;
+    
+}
+
+@keyframes scrollText {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }

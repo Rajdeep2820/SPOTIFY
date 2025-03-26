@@ -1,5 +1,5 @@
 .border{
-    border : solid 2px #252525;
+    border : solid 1px black;
     margin : 1px;
 }
 .flex{
@@ -44,30 +44,51 @@
     background: #333; /* Slightly lighter on hover */
 }
 
-.song-name {
+.info{
     width: 150px; /* Set a fixed width for scrolling effect */
     overflow: hidden;
     white-space: nowrap;
     position: relative;
 }
 
-.scroll-text {
+.title{
     display: inline-block;
     white-space: nowrap;
     transform: translateX(0%);
+    
 }
 
-li:hover .scroll-text {
-    animation: scrollText 4s linear infinite;
+li:hover .title {
+    animation: scrollText 5s linear infinite;
     color : #1bd760;
     
 }
 
 @keyframes scrollText {
     from {
-        transform: translateX(0%);
+        transform: translateX(100%); /* Start from right */
     }
     to {
-        transform: translateX(-50%);
+        transform: translateX(-100%); /* Move to left */
     }
 }
+
+/* .song-name {
+    width: 150px; 
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+
+.scroll-text {
+    display: inline-block;
+    padding-left: 0%;
+    transform: translateX(0%);
+}
+
+li:hover .scroll-text {
+    animation: scrollText 8s linear infinite;
+    color : #1bd760;
+
+} */

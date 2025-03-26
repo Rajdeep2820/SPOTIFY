@@ -1,0 +1,8 @@
+
+<svg width="34px" height="34px" viewBox="0 0 24 24" id="play" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
+    <!-- Green exterior circle -->
+    <circle cx="12" cy="12" r="9" style="fill: #1bd760; stroke: none;"></circle>
+    
+    <!-- Black play button -->
+    <path id="primary" d="M16,12l-6,4V8Z" style="fill: #000000; stroke: #000000; stroke-linecap: round; stroke-width: 2.1;"></path>
+</svg>

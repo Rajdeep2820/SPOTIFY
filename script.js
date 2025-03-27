@@ -68,7 +68,7 @@ async function main() {
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
         e.addEventListener("click" , element=>{
             console.log(e.querySelector(".info").firstElementChild.innerHTML);
-            playMusic(e.querySelector(".title").innerHTML.trim());
+            playMusic(e.querySelector(".info").firstElementChild.innerHTML);
         })   
     })
      
@@ -93,8 +93,22 @@ async function main() {
         console.log(currentSong.currentTime , currentSong.duration);
         document.querySelector(".startTime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}`;
         document.querySelector(".endTime").innerHTML = `${secondsToMinutesSeconds(currentSong.duration)}`
+        document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration)*100 + "%";
+    }) 
+
+    // Adding event listener to seekbar:
+    document.querySelector(".seekbar").addEventListener("click" , (e)=>{
+        let percent = (e.offsetX/e.target.getBoundingClientRect().width)*100;
+        document.querySelector(".circle").style.left =  percent + "%";
+        currentSong.currentTime = ((currentSong.duration) * percent)/100;
     })
 
+    document.querySelector(".hamburger").addEventListener("click" , ()=>{
+        document.querySelector(".left").style.left = "0";
+    })
+    document.querySelector(".cross").addEventListener("click" , ()=>{
+        document.querySelector(".left").style.left = "-107%";
+    })
 }
 
 main();

@@ -274,7 +274,7 @@ body {
     opacity: 1;
 }
 
-.card:hover{
+.card:hover {
     opacity: 1;
     background-color: #313131;
     transition: all 0.5s;
@@ -295,7 +295,7 @@ body {
 
 .card p {
     font-size: 13.5px;
-    color : rgb(165, 165, 165)
+    color: rgb(165, 165, 165)
 }
 
 .play {
@@ -322,7 +322,6 @@ body {
     width: 100%;
     padding: 11px 0;
 }
-
 
 .abovebar {
     width: 70%;
@@ -357,7 +356,7 @@ body {
     width: 230px;
 }
 
-.volume{
+.volume {
     cursor: pointer;
 }
 
@@ -447,15 +446,15 @@ body {
     }
 
     .playbar {
-        width: 97.6%;
+        width: 100%;
         position: fixed;
     }
 
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
     .playbar {
-        width: 97.6%;
+        width: 100%;
         position: fixed;
         font-size: 12px;
     }
@@ -478,7 +477,7 @@ body {
         display: none;
     }
 
-    .songinfo{
+    .songinfo {
         width: 250px;
     }
 

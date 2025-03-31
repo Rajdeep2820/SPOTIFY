@@ -294,7 +294,8 @@ body {
 }
 
 .card p {
-    font-size: 14px;
+    font-size: 13.5px;
+    color : rgb(165, 165, 165)
 }
 
 .play {
@@ -356,6 +357,10 @@ body {
     width: 230px;
 }
 
+.volume{
+    cursor: pointer;
+}
+
 
 .volseek {
     display: flex;
@@ -365,8 +370,6 @@ body {
     border-radius: 5px;
     background-color: white;
 }
-
-
 
 .seekbar {
     display: flex;
@@ -473,6 +476,10 @@ body {
 
     .sound {
         display: none;
+    }
+
+    .songinfo{
+        width: 250px;
     }
 
 }

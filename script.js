@@ -69,10 +69,61 @@ const playMusic = (track , pause=false)=>{
     document.querySelector(".startTime").innerHTML = "00:00";
     document.querySelector(".endTime").innerHTML = "00:00";
 }
-async function main() {
 
-   await getSongs("songs/vibe");
+async function displayAlbums() {
+    console.log("Displaying albums...");
+    let a = await fetch(`/songs/`);
+    let response = await a.text();
+    let div = document.createElement("div");
+    div.innerHTML = response;
+    let anchors = div.getElementsByTagName("a");
+    let cardContainer = document.querySelector(".cardContainer");
+    let array = Array.from(anchors);
+
+    for (let index = 0; index < array.length; index++) {
+        const e = array[index]; 
+        if (e.href.includes("/songs/") && !e.href.includes(".htaccess")) {
+            let folder = e.href.split("/").filter(Boolean).pop(); // Fixes folder extraction
+
+            if (!folder || folder === "songs") {
+                console.warn("Skipping invalid folder:", folder);
+                continue;
+            }
+
+            let a = await fetch(`/songs/${folder}/info.json`);
+            if (!a.ok) {
+                console.warn(`Metadata not found for ${folder}, skipping...`);
+                continue;
+            }
+
+            let response = await a.json(); 
+            cardContainer.innerHTML += `
+                <div data-folder="${folder}" class="card">
+                    <div class="play">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="54" height="54" fill="none">
+                            <circle cx="16" cy="16" r="12" fill="#1bd760" stroke="black" stroke-width="1.5" />
+                            <path d="M12 14.9332V17.0668C12 18.9593 12 19.9051 12.567 20.2803C13.134 20.6555 13.911 20.2491 15.3813 19.4748L17.1662 18.5139C18.9999 17.5697 19.9999 17.0576 19.9999 16C19.9999 14.9424 18.9999 14.4303 17.1662 13.4861L15.3813 12.5252C13.911 11.7509 13.134 11.3445 12.567 11.7197C12 12.0949 12 13.0407 12 14.9332Z" fill="black"/>
+                        </svg>
+                    </div>
+                    <img src="/songs/${folder}/cover.jpeg" alt="hudhud">
+                    <h3>${response.title}</h3>
+                    <p>${response.description}</p>
+                </div>`;
+        }
+    }
+    //load the playlist whenever card is clicked
+   Array.from(document.getElementsByClassName("card")).forEach(e=>{
+    e.addEventListener("click" , async item =>{
+        songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+    })
+})
+}
+async function main() {
+   await getSongs("songs/base");
     playMusic(songs[0] , true);
+
+    //display all the albums:
+    displayAlbums();
 
      
     // attach an event litner to play , next and prev songs
@@ -138,6 +189,18 @@ async function main() {
             songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
         })
     })
+
+    document.querySelector(".volume").addEventListener("click", (e) => {
+        if (e.target.src.includes("sound.svg")) {  
+            e.target.src = "mute.svg";
+            currentSong.volume = 0;
+            document.querySelector(".volseek input").value = 0;
+        } else {
+            e.target.src = "sound.svg";
+            currentSong.volume = 0.1;
+            document.querySelector(".volseek input").value = 10;
+        }
+    });
 
 }
 main();

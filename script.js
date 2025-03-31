@@ -22,7 +22,6 @@ async function getSongs(folder) {
     currFolder = folder;
     let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
     let response = await a.text();
-    console.log(response);
     let div = document.createElement("div");
     div.innerHTML = response;
     let as = div.getElementsByTagName("a");
@@ -33,25 +32,10 @@ async function getSongs(folder) {
             songs.push(element.href.split(`/${folder}/`)[1]);
         }
     }
-}
-const playMusic = (track , pause=false)=>{
-    // let audio = new Audio("/songs/" + track);
-    currentSong.src = `/${currFolder}/` + track;
-    if(!pause){
-    currentSong.play();
-    play.src = "pause.svg";
-    }
-    document.querySelector(".songinfo").innerHTML =  decodeURI(track);
-    document.querySelector(".startTime").innerHTML = "00:00";
-    document.querySelector(".endTime").innerHTML = "00:00";
-}
-async function main() {
-
-    songs = await getSongs("songs/vibe");
-    playMusic(songs[0] , true);
 
     // Show all the songs inthe playlists.
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
+    songUL.innerHTML = "";
     for (song of songs) {
         songUL.innerHTML = songUL.innerHTML + `<li>
                             <img class = "invert" src="music.svg" alt="">
@@ -65,14 +49,31 @@ async function main() {
                             </div>    
                         </li>`;
     }
-
-    // attaching an event listener to each song..
-    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
+     // attaching an event listener to each song..
+     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
         e.addEventListener("click" , element=>{
-            console.log(e.querySelector(".info").firstElementChild.innerHTML);
             playMusic(e.querySelector(".info").firstElementChild.innerHTML);
         })   
     })
+    return songs;
+}
+
+const playMusic = (track , pause=false)=>{
+    // let audio = new Audio("/songs/" + track);
+    currentSong.src = `/${currFolder}/` + track;
+    if(!pause){
+    currentSong.play();
+    play.src = "pause.svg";
+    }
+    document.querySelector(".songinfo").innerHTML =  decodeURI(track);
+    document.querySelector(".startTime").innerHTML = "00:00";
+    document.querySelector(".endTime").innerHTML = "00:00";
+}
+async function main() {
+
+   await getSongs("songs/vibe");
+    playMusic(songs[0] , true);
+
      
     // attach an event litner to play , next and prev songs
      function togglePlayPause(event) {
@@ -113,8 +114,6 @@ async function main() {
     })
 
     prev.addEventListener("click" , ()=>{
-        console.log("previous clicked");
-        console.log(currentSong);
         let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
         if((index-1)>=0){
             playMusic(songs[index-1]);
@@ -122,7 +121,6 @@ async function main() {
     })
 
     next.addEventListener("click" , ()=>{
-        console.log("next clicked");
         let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
         if((index+1)< songs.length){
             playMusic(songs[index+1]);
@@ -136,7 +134,6 @@ async function main() {
 
     //load the playlist whenever card is clicked
    Array.from(document.getElementsByClassName("card")).forEach(e=>{
-        console.log(e);
         e.addEventListener("click" , async item =>{
             songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
         })

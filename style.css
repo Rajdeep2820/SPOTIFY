@@ -42,12 +42,13 @@ body {
     width: 24px;
 }
 
-.first{
+.first {
     display: flex;
     justify-content: space-between;
 }
-.cross{
-   display: none;
+
+.cross {
+    display: none;
 }
 
 .logo {
@@ -115,6 +116,10 @@ body {
     opacity: 0.3;
 }
 
+.info div {
+    word-break: break-all;
+}
+
 .playNow {
     display: flex;
     gap: 6px;
@@ -125,7 +130,7 @@ body {
 .footer {
     display: flex;
     font-size: 10px;
-    gap: 18px;
+    gap: 16px;
     position: absolute;
     bottom: 20px;
 }
@@ -139,15 +144,15 @@ body {
     margin: 16px 0;
 }
 
-.nav{
+.nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap : 6px;
+    gap: 6px;
 }
 
 
-.hamburger{
+.hamburger {
     display: none;
 }
 
@@ -157,11 +162,11 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    bottom : 10px;
+    bottom: 10px;
 }
 
 .header>* {
-    padding: 20px;
+    padding: 18px;
 }
 
 .search-bar input {
@@ -194,8 +199,8 @@ body {
     opacity: 0.1s
 }
 
-.search-bar:hover svg{
-    color : #1bd760;
+.search-bar:hover svg {
+    color: #1bd760;
 }
 
 .buttons {
@@ -247,7 +252,8 @@ body {
 }
 
 .cardContainer {
-    padding-left: 72px;
+    justify-content: center;
+    padding-left: 0px;
     display: flex;
     gap: 50px;
     flex-wrap: wrap;
@@ -261,6 +267,13 @@ body {
     padding: 10px;
     border-radius: 10px;
     background-color: #252525;
+    opacity: 1;
+}
+
+.card:hover{
+    opacity: 1;
+    background-color: #313131;
+    transition: all 0.5s;
 }
 
 .card>* {
@@ -289,7 +302,7 @@ body {
 
 .card:hover .play {
     opacity: 1;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
     top: 176px;
 }
 
@@ -300,118 +313,168 @@ body {
     justify-content: center;
     position: absolute;
     bottom: 0px;
-    max-height: 40px;
-    width: 97.6%;
-    padding: 14px;
+    max-height: 100px;
+    width: 100%;
+    padding: 11px 0;
 }
 
-.abovebar{
-    width: 60%;
+
+.abovebar {
+    width: 70%;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 26px;
+    margin-bottom: 24px;
+}
+
+.songinfo {
+    display: flex;
+    justify-content: center;
+    width: 250px;
 }
 
 .songbuttons {
     display: flex;
     align-items: center;
-    gap : 10px;
+    gap: 7px;
     align-items: center;
     justify-content: center;
 }
 
-.seekbar{
+.sound {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 230px;
+}
+
+
+.volseek {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 3.5px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+
+
+.seekbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: absolute;
     bottom: 0px;
     height: 3.5px;
-    width : 60%;
-    border : 1px solid #4e4c4c;
+    width: 70%;
+    border: 1px solid #4e4c4c;
     margin-bottom: 11px;
     border-radius: 5px;
     background-color: #4e4c4c;
     cursor: pointer;
 }
 
-.startTime{
+.startTime {
     position: relative;
-    right : 51px;
-    color : rgb(151, 151, 151);
-    font-size: 15px;
-}
-.endTime{
-    position: relative;
-    left : 51px;
-    color : rgb(151, 151, 151);
+    right: 51px;
+    color: rgb(151, 151, 151);
     font-size: 15px;
 }
 
-.circle{
+.endTime {
+    position: relative;
+    left: 51px;
+    color: rgb(151, 151, 151);
+    font-size: 15px;
+}
+
+.circle {
     position: absolute;
     width: 13px;
     height: 13px;
     border-radius: 13px;
     background-color: white;
-    left : 0%;
+    left: 0%;
     transition: left 0.3s;
 }
 
-.circle:hover{
+.circle:hover {
     width: 20px;
     height: 20px;
     cursor: pointer;
 }
 
-.songbuttons img{
+.songbuttons img {
     cursor: pointer;
 }
 
 @media (max-width: 1450px) {
-  .left{
-    background-color: black;
-    position: absolute;
-    left : -107%;
-    transition: all 0.6s ease-in-out;
-    z-index : 1;
-    width: 396px;
-  }
+    .left {
+        background-color: black;
+        position: absolute;
+        left: -107%;
+        transition: all 0.6s ease-in-out;
+        z-index: 1;
+        width: 370px;
+    }
 
+    .right {
+        width: 100%;
+    }
 
-  .right{
-    width: 100%;
-  }
-  
-  .hamburger{
-    display: block;
-  }
+    .hamburger {
+        display: block;
+    }
 
-  .cross{
-    display: block;
-  }
+    .cross {
+        display: block;
+    }
 
-  .search-bar{
-    display: none;
-  }
+    .search-bar {
+        display: none;
+    }
 
-  .playbar{
-    width : 97.6%;
-    position: fixed;
-}
-
-
-  }
-
-  @media (max-width: 1000px) {
-    .playbar{
-        width : 97.6%;
+    .playbar {
+        width: 97.6%;
         position: fixed;
     }
 
+}
 
-  }
-  
+@media (max-width: 1000px) {
+    .playbar {
+        width: 97.6%;
+        position: fixed;
+        font-size: 12px;
+    }
+
+    .footer {
+        font-size: 9px;
+    }
+
+    .abovebar {
+        width: 60%;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+
+    .seekbar {
+        width: 60%;
+    }
+
+    .sound {
+        display: none;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .cardContainer {
+        max-height: 65vh;
+    }
+}

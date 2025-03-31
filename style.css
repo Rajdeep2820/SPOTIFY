@@ -140,6 +140,10 @@ body {
     text-decoration: none;
 }
 
+.footer :hover {
+    text-decoration: underline;
+}
+
 .right {
     margin: 16px 0;
 }
